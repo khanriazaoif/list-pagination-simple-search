@@ -25,15 +25,25 @@ console.log(tableCells);
 
 // YOUR CODE GOES HERE!!! Do the steps below to complete this challenge
 
-// 1. Create a function to perform your search - it should accept two parameters: searchInput, names.  
+// 1. Create a function to perform your search - it should accept two parameters: searchInput, names.
+function performSearch(searchInput, names) {
   // Inside the function's code block:
-  // 1a. Create two `console.log` statements to log out the searchInput and names parameter 
+  // 1a. Create two `console.log` statements to log out the searchInput and names parameter
+  console.log(searchInput);
+  console.log(names);
   // 1b. Loop over the `names` parameter
-    // 1c. Remove the 'match' class name from each `names[i]` 
-    // 1d. Create a conditional that checks two conditions:
-      // 1ca. If the `searchInput.value.length` does not equal the digit zero AND `names[i].textContent.toLowerCase()` includes `searchInput.value.toLowerCase())`
-      // 1cb. Add the class name 'match` to `names[i]` 
-  
+  for (let i = 0; i < names.length; i++){
+  // 1c. Remove the 'match' class name from each `names[i]`
+    names[i].classList.remove('match');
+  // 1d. Create a conditional that checks two conditions:
+  // 1ca. If the `searchInput.value.length` does not equal the digit zero AND `names[i].textContent.toLowerCase()` includes `searchInput.value.toLowerCase())`
+    if (searchInput.value.length !== '0' && names[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())){
+      console.log('yes');
+    } else {
+      console.log('no');
+    }
+  }
+}
 // 2. Call the search function in the callbacks of the event listeners below, being sure pass in the `search` and `tableCells` arguments
 
 
@@ -46,7 +56,7 @@ submit.addEventListener('click', (event) => {
   event.preventDefault();
 
   // Invoke your search function here - Arguments: search, tableCells
- 
+ performSearch(search, tableCells);
 
   // Helpful log statement to test function
   console.log('Submit button is functional!');
@@ -56,7 +66,7 @@ submit.addEventListener('click', (event) => {
 search.addEventListener('keyup', () => {
 
   // Invoke your search function here - Arguments: search, tableCells
-
+  performSearch(search, tableCells);
 
   // Helpful log statement to test function
   console.log('Keyup event on the Search input is functional!');
