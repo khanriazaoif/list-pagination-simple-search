@@ -37,7 +37,7 @@ function performSearch(searchInput, names) {
     names[i].classList.remove('match');
   // 1d. Create a conditional that checks two conditions:
   // 1ca. If the `searchInput.value.length` does not equal the digit zero AND `names[i].textContent.toLowerCase()` includes `searchInput.value.toLowerCase())`
-    if (searchInput.value.length !== '0' && names[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())){
+    if (searchInput.value.length !== 0 && names[i].textContent.toLowerCase().includes(searchInput.value.toLowerCase())){
       console.log('yes');
     } else {
       console.log('no');
